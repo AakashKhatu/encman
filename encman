@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# $@ has all command line arguments
+# ${x} gives the xth argument
+
+#a=$(wget -qO- https://zer0k.pythonanywhere.com/)
+#echo $a
+
+case $1 in
+	-[h\?]|--help|help)
+		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+		printf "encman is a command line utility for managing remotely stored encrypted strings.\n"
+		printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+		printf "the available commands are:\n\n-h\thelp\tShow This Page\n-a\tadd\tEncrypts Text and stores it remotely\n-p\tping\tPings the remote server to test connection\n-g\tget\tGet Encrypted Text by name\n-s\tsearch\tsearches a file name on the remote server\n\n"
+		;;
+	add)
+		echo "you selected add"
+		;;
+	*)
+		echo "invalid command"
+		;;
+esac
